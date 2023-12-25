@@ -45,6 +45,7 @@ prompt =
 To make training more efficient and use the longer context of these LLMs we'll use something called "packing". We will combine multiple examples to fill the model's memory and make training more efficient instead of feeding examples individually. This way we avoid doing a lot of padding and dealing with different lengths.
 
 ![Packing Example](./img/packing.png)
+*Image source: [Link to Image Source](https://api.wandb.ai/files/capecape/images/projects/38233410/d9f4c0c2.png)*
 
 We concatenate(pack) different datapoints seperated by EOS token[</s>]
 
