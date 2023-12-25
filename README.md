@@ -17,6 +17,29 @@ python test.py --api_url "http://192.168.251.119:8888/query" --user_prompt "what
 
 Fine-tune the LLAMA model for code generation tasks using the Python script. The script incorporates a range of libraries and functionalities from the Transformers library, custom model and dataset preprocessors, loss functions, and Weights & Biases (wandb) for experiment tracking.
 
+## Dataset preparation and tokenization
+
+The available dataset consists of HTML code paired with descriptive labels that explain the functionality or purpose of the HTML code. Size of the dataset is very small as it has only 43 datapoints and hence results might not be good it is recommended to more datapoints at least 1000 as per GPT3 fine-tuning instructions by OPEN-AI.
+
+Here we will use "label" as a prompt to our "html" code generation we have further processed this using and converted to LLM specific prompt. This is illustrated in following example.
+
+```
+row = "this is a basic landing page with a email sign up"
+prompt =
+"Below is an instruction that describes a task."
+"You will be provided a prompt and based on it you have to generate HTML code. Write a response that appropriately completes the    request.\n\n" "### Instruction:\n{}\n\n### Response:\n").format(row)
+
+```
+
+
+To make training more efficient and use the longer context of these LLMs we'll use something called "packing". We will combine multiple examples to fill the model's memory and make training more efficient instead of feeding examples individually. This way we avoid doing a lot of padding and dealing with different lengths.
+
+![[Pasted image 20231225132642.png]]
+
+We concatenate(pack) different datapoints seperated by EOS token[</s>]
+
+Further we will use PyTorch DataLoader to load data in batches for training.
+
 ## Features
 
 - LLAMA model adaptation for code generation.
