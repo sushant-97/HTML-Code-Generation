@@ -3,6 +3,16 @@ Used 4-bit precision model using bitsandbytes library and further used LoRA tech
 Training report can be found here
 https://api.wandb.ai/links/kameng/yo4tnfhg
 
+# Test
+Trained  model is uploaded at huggingface repo at "sushant07/llama2-fine-tuned-jawerty_html_dataset"
+Test API using test.py file which take two arguments
+api_url and user_prompt.
+Run test.py to use API endpoint as follows
+```
+python test.py --api_url "http://192.168.251.119:8888/query" --user_prompt "what is the rate of nissin noodles?"
+
+```
+
 # LLAMA Fine-Tuning for HTML Code Generation
 
 Fine-tune the LLAMA model for code generation tasks using the Python script. The script incorporates a range of libraries and functionalities from the Transformers library, custom model and dataset preprocessors, loss functions, and Weights & Biases (wandb) for experiment tracking.
