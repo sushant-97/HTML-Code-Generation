@@ -1,6 +1,6 @@
 # HTML-Code-Generation
-Finetuning LLAMA2 for HTML code generation
-# LLAMA Fine-Tuning for Code Generation
+Used 4-bit precision model using bitsandbytes library and further used LoRA technique to finetune LLAMA2 for HTML code generation.
+# LLAMA Fine-Tuning for HTML Code Generation
 
 Fine-tune the LLAMA model for code generation tasks using the Python script. The script incorporates a range of libraries and functionalities from the Transformers library, custom model and dataset preprocessors, loss functions, and Weights & Biases (wandb) for experiment tracking.
 
